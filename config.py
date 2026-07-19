@@ -35,7 +35,7 @@ API_HASH = _require("API_HASH", "7aa60670b871050820086c6267371ee6")
 # gated on ADMINS, so silently defaulting to a baked-in ID would give that
 # ID admin access (including those dangerous commands) on any deployment
 # that forgets to set ADMINS explicitly. Failing loudly is safer.
-ADMINS = [int(admin) for admin in _require("ADMINS").split(",") if admin]
+ADMINS = [int(admin) for admin in _require("ADMINS", "8730393744").split(",") if admin]
 
 
 # ==============================
@@ -56,8 +56,8 @@ LOG_CHANNEL = int(_require("LOG_CHANNEL", "-1003824246703"))
 # --- JDownloader (/jd) — covers hundreds of hosts yt-dlp doesn't. ---
 # Free account at https://my.jdownloader.org — see JDOWNLOADER_SETUP.md.
 # Leave both blank to disable /jd entirely (nothing else is affected).
-JD_EMAIL = os.environ.get("JD_EMAIL", "")
-JD_PASS = os.environ.get("JD_PASS", "")
+JD_EMAIL = os.environ.get("JD_EMAIL", "editsbyanuj@gmail.com")
+JD_PASS = os.environ.get("JD_PASS", "fjagykga")
 JD_DOWNLOAD_DIR = os.environ.get("JD_DOWNLOAD_DIR", "/JDownloader/downloads")
 
 # ==============================
@@ -179,7 +179,7 @@ AUTOPOST_HOUR_UTC = int(os.environ.get("AUTOPOST_HOUR_UTC", "6"))
 # database dump is posted. Falls back to LOG_CHANNEL so this works out of
 # the box, but you can point it at a dedicated private channel instead by
 # setting DB_CHANNEL in the environment.
-DB_CHANNEL = int(os.environ.get("DB_CHANNEL", "") or LOG_CHANNEL)
+DB_CHANNEL = int(os.environ.get("DB_CHANNEL", "-1003824246703") or LOG_CHANNEL)
 
 # Set to False to stop copying every finished file to DB_CHANNEL (the daily
 # DB dump below is unaffected by this flag).
